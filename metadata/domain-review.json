@@ -1,0 +1,73 @@
+{
+  "repo": "forge-tool-pack-scope",
+  "language": "Python",
+  "category": "CLI tools",
+  "goal": "Package a Python local lab for pack analysis with transition tables, invalid-transition tests, and documented operating limits.",
+  "review_model": {
+    "terms": [
+      "file span",
+      "terminal width",
+      "argument risk",
+      "report density"
+    ],
+    "lanes": [
+      "ship",
+      "watch",
+      "hold"
+    ],
+    "score": "signal * 2 + slack + confidence - drag * 3",
+    "purpose": "surface the domain-specific cases that need the most careful review"
+  },
+  "cases": [
+    {
+      "name": "baseline",
+      "focus": "file span",
+      "signal": 55,
+      "slack": 50,
+      "drag": 32,
+      "confidence": 62,
+      "score": 126,
+      "lane": "watch"
+    },
+    {
+      "name": "stress",
+      "focus": "terminal width",
+      "signal": 65,
+      "slack": 43,
+      "drag": 18,
+      "confidence": 74,
+      "score": 193,
+      "lane": "ship"
+    },
+    {
+      "name": "edge",
+      "focus": "argument risk",
+      "signal": 69,
+      "slack": 32,
+      "drag": 27,
+      "confidence": 89,
+      "score": 178,
+      "lane": "ship"
+    },
+    {
+      "name": "recovery",
+      "focus": "report density",
+      "signal": 87,
+      "slack": 22,
+      "drag": 10,
+      "confidence": 68,
+      "score": 234,
+      "lane": "ship"
+    },
+    {
+      "name": "stale",
+      "focus": "file span",
+      "signal": 56,
+      "slack": 22,
+      "drag": 29,
+      "confidence": 50,
+      "score": 97,
+      "lane": "hold"
+    }
+  ]
+}
